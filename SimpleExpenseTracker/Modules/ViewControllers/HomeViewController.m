@@ -7,7 +7,7 @@
 #import "ExpenseCell.h"
 #import "AddExpenseViewController.h"
 
-@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate>
+@interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, AddExpenseViewControllerDelegate>
 @property (nonatomic, strong) UIView *summaryCard;
 @property (nonatomic, strong) UILabel *todayAmountLabel;
 @property (nonatomic, strong) UILabel *monthAmountLabel;
@@ -118,8 +118,15 @@
 
 - (void)addTapped {
     AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
+    vc.delegate = self;
     UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
     [self presentViewController:nav animated:YES completion:nil];
+}
+
+#pragma mark - AddExpenseViewControllerDelegate
+
+- (void)addExpenseViewControllerDidSave:(AddExpenseViewController *)controller {
+    [self refreshData];
 }
 
 #pragma mark - UITableViewDataSource

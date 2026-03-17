@@ -4,6 +4,12 @@
 
 #import <UIKit/UIKit.h>
 
-@interface AddExpenseViewController : UIViewController
+@class AddExpenseViewController;
 
+@protocol AddExpenseViewControllerDelegate <NSObject>
+- (void)addExpenseViewControllerDidSave:(AddExpenseViewController *)controller;
+@end
+
+@interface AddExpenseViewController : UIViewController
+@property (nonatomic, weak) id<AddExpenseViewControllerDelegate> delegate;
 @end

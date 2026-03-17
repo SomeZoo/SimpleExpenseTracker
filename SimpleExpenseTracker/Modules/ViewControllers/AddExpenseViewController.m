@@ -5,7 +5,7 @@
 #import "AddExpenseViewController.h"
 #import "ExpenseManager.h"
 
-@interface AddExpenseViewController () <UIPickerViewDataSource, UIPickerViewDelegate>
+@interface AddExpenseViewController () <UIPickerViewDataSource, UIPickerViewDelegate, UITextFieldDelegate>
 @property (nonatomic, strong) UITextField *titleField;
 @property (nonatomic, strong) UITextField *amountField;
 @property (nonatomic, strong) UITextField *categoryField;
@@ -51,6 +51,7 @@
     self.amountField.placeholder = @"0.00";
     self.amountField.attributedPlaceholder = [[NSAttributedString alloc] initWithString:@"0.00" attributes:@{NSForegroundColorAttributeName: [[UIColor whiteColor] colorWithAlphaComponent:0.5]}];
     self.amountField.translatesAutoresizingMaskIntoConstraints = NO;
+    self.amountField.delegate = self;
     [amountCard addSubview:self.amountField];
     
     // Title
@@ -143,6 +144,11 @@
     
     Expense *expense = [[Expense alloc] initWithTitle:title amount:amount date:self.datePicker.date category:self.categoryField.text note:nil];
     [[ExpenseManager sharedManager] addExpense:expense];
+    
+    if ([self.delegate respondsToSelector:@selector(addExpenseViewControllerDidSave:)]) {
+        [self.delegate addExpenseViewControllerDidSave:self];
+    }
+    
     [self dismissViewControllerAnimated:YES completion:nil];
 }
 
@@ -152,5 +158,44 @@
 - (NSInteger)pickerView:(UIPickerView *)pickerView numberOfRowsInComponent:(NSInteger)component { return self.categories.count; }
 - (NSString *)pickerView:(UIPickerView *)pickerView titleForRow:(NSInteger)row forComponent:(NSInteger)component { return self.categories[row]; }
 - (void)pickerView:(UIPickerView *)pickerView didSelectRow:(NSInteger)row inComponent:(NSInteger)component { self.categoryField.text = self.categories[row]; }
+
+#pragma mark - UITextFieldDelegate
+
+- (BOOL)textField:(UITextField *)textField shouldChangeCharactersInRange:(NSRange)range replacementString:(NSString *)string {
+    if (textField != self.amountField) {
+        return YES;
+    }
+    
+    // 只允许输入数字和小数点
+    NSCharacterSet *allowedCharacters = [NSCharacterSet characterSetWithCharactersInString:@"0123456789."];
+    NSCharacterSet *inputCharacters = [NSCharacterSet characterSetWithCharactersInString:string];
+    if (![allowedCharacters isSupersetOfSet:inputCharacters]) {
+        return NO;
+    }
+    
+    // 获取输入后的完整文本
+    NSString *newText = [textField.text stringByReplacingCharactersInRange:range withString:string];
+    
+    // 检查小数点数量
+    NSUInteger dotCount = [newText componentsSeparatedByString:@"."].count - 1;
+    if (dotCount > 1) {
+        return NO;
+    }
+    
+    // 限制小数点后两位
+    if ([newText containsString:@"."]) {
+        NSArray *parts = [newText componentsSeparatedByString:@"."];
+        if (parts.count == 2 && [parts[1] length] > 2) {
+            return NO;
+        }
+    }
+    
+    // 限制总长度（防止过大数字）
+    if (newText.length > 10) {
+        return NO;
+    }
+    
+    return YES;
+}
 
 @end
