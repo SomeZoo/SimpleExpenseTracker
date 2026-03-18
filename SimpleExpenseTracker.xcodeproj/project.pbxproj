@@ -18,6 +18,7 @@
 		D85144602F69995100FD1A19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D851444F2F69995100FD1A19 /* AppDelegate.m */; };
 		D85144612F69995100FD1A19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144542F69995100FD1A19 /* main.m */; };
 		D85144622F69995100FD1A19 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144562F69995100FD1A19 /* SceneDelegate.m */; };
+		D8CC2B722F6ADECB004AA47E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CC2B712F6ADECB004AA47E /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -42,6 +43,8 @@
 		D85144542F69995100FD1A19 /* main.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = main.m; sourceTree = "<group>"; };
 		D85144552F69995100FD1A19 /* SceneDelegate.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = SceneDelegate.h; sourceTree = "<group>"; };
 		D85144562F69995100FD1A19 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
+		D8CC2B702F6ADECB004AA47E /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
+		D8CC2B712F6ADECB004AA47E /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
 		E9674BD44D859A4EB80FC41F /* Pods-SimpleExpenseTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleExpenseTracker.release.xcconfig"; path = "Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -106,6 +109,8 @@
 		D85144492F69995100FD1A19 /* ViewControllers */ = {
 			isa = PBXGroup;
 			children = (
+				D8CC2B702F6ADECB004AA47E /* ProfileViewController.h */,
+				D8CC2B712F6ADECB004AA47E /* ProfileViewController.m */,
 				D85144452F69995100FD1A19 /* AddExpenseViewController.h */,
 				D85144462F69995100FD1A19 /* AddExpenseViewController.m */,
 				D85144472F69995100FD1A19 /* HomeViewController.h */,
@@ -268,6 +273,7 @@
 			buildActionMask = 2147483647;
 			files = (
 				D851445B2F69995100FD1A19 /* Expense.m in Sources */,
+				D8CC2B722F6ADECB004AA47E /* ProfileViewController.m in Sources */,
 				D851445C2F69995100FD1A19 /* ExpenseManager.m in Sources */,
 				D851445D2F69995100FD1A19 /* AddExpenseViewController.m in Sources */,
 				D851445E2F69995100FD1A19 /* HomeViewController.m in Sources */,

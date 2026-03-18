@@ -7,6 +7,7 @@
 
 #import "SceneDelegate.h"
 #import "HomeViewController.h"
+#import "ProfileViewController.h"
 
 @interface SceneDelegate ()
 
@@ -19,13 +20,30 @@
     UIWindowScene *windowScene = (UIWindowScene *)scene;
     self.window = [[UIWindow alloc] initWithWindowScene:windowScene];
     
+    // 首页
     HomeViewController *homeVc = [[HomeViewController alloc] init];
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:homeVc];
+    UINavigationController *homeNav = [[UINavigationController alloc] initWithRootViewController:homeVc];
+    homeNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"首页" image:[UIImage systemImageNamed:@"house.fill"] tag:0];
+    
+    // 我的页面
+    ProfileViewController *profileVc = [[ProfileViewController alloc] init];
+    UINavigationController *profileNav = [[UINavigationController alloc] initWithRootViewController:profileVc];
+    profileNav.tabBarItem = [[UITabBarItem alloc] initWithTitle:@"我的" image:[UIImage systemImageNamed:@"person.fill"] tag:1];
+    
+    // 设置导航栏外观
     UINavigationBarAppearance *appearance = [[UINavigationBarAppearance alloc] init];
     [appearance configureWithOpaqueBackground];
-    nav.navigationBar.standardAppearance = appearance;
-    nav.navigationBar.scrollEdgeAppearance = appearance;
-    self.window.rootViewController = nav; // 你的首页
+    homeNav.navigationBar.standardAppearance = appearance;
+    homeNav.navigationBar.scrollEdgeAppearance = appearance;
+    profileNav.navigationBar.standardAppearance = appearance;
+    profileNav.navigationBar.scrollEdgeAppearance = appearance;
+    
+    // TabBarController
+    UITabBarController *tabBarController = [[UITabBarController alloc] init];
+    tabBarController.viewControllers = @[homeNav, profileNav];
+    tabBarController.selectedIndex = 0;
+    
+    self.window.rootViewController = tabBarController;
     [self.window makeKeyAndVisible];
 }
 
