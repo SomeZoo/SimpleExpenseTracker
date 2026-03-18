@@ -8,3 +8,98 @@ build/
 
 # macOS
 .DS_Store
+Pods/Manifest.lock
+Pods/AFNetworking/LICENSE
+Pods/AFNetworking/README.md
+Pods/AFNetworking/AFNetworking/AFCompatibilityMacros.h
+Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.h
+Pods/AFNetworking/AFNetworking/AFHTTPSessionManager.m
+Pods/AFNetworking/AFNetworking/AFNetworking.h
+Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.h
+Pods/AFNetworking/AFNetworking/AFNetworkReachabilityManager.m
+Pods/AFNetworking/AFNetworking/AFSecurityPolicy.h
+Pods/AFNetworking/AFNetworking/AFSecurityPolicy.m
+Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.h
+Pods/AFNetworking/AFNetworking/AFURLRequestSerialization.m
+Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.h
+Pods/AFNetworking/AFNetworking/AFURLResponseSerialization.m
+Pods/AFNetworking/AFNetworking/AFURLSessionManager.h
+Pods/AFNetworking/AFNetworking/AFURLSessionManager.m
+Pods/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.h
+Pods/AFNetworking/UIKit+AFNetworking/AFAutoPurgingImageCache.m
+Pods/AFNetworking/UIKit+AFNetworking/AFImageDownloader.h
+Pods/AFNetworking/UIKit+AFNetworking/AFImageDownloader.m
+Pods/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.h
+Pods/AFNetworking/UIKit+AFNetworking/AFNetworkActivityIndicatorManager.m
+Pods/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/UIActivityIndicatorView+AFNetworking.m
+Pods/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/UIButton+AFNetworking.m
+Pods/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/UIImageView+AFNetworking.m
+Pods/AFNetworking/UIKit+AFNetworking/UIKit+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/UIProgressView+AFNetworking.m
+Pods/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/UIRefreshControl+AFNetworking.m
+Pods/AFNetworking/UIKit+AFNetworking/WKWebView+AFNetworking.h
+Pods/AFNetworking/UIKit+AFNetworking/WKWebView+AFNetworking.m
+Pods/Masonry/LICENSE
+Pods/Masonry/README.md
+Pods/Masonry/Masonry/MASCompositeConstraint.h
+Pods/Masonry/Masonry/MASCompositeConstraint.m
+Pods/Masonry/Masonry/MASConstraint+Private.h
+Pods/Masonry/Masonry/MASConstraint.h
+Pods/Masonry/Masonry/MASConstraint.m
+Pods/Masonry/Masonry/MASConstraintMaker.h
+Pods/Masonry/Masonry/MASConstraintMaker.m
+Pods/Masonry/Masonry/MASLayoutConstraint.h
+Pods/Masonry/Masonry/MASLayoutConstraint.m
+Pods/Masonry/Masonry/Masonry.h
+Pods/Masonry/Masonry/MASUtilities.h
+Pods/Masonry/Masonry/MASViewAttribute.h
+Pods/Masonry/Masonry/MASViewAttribute.m
+Pods/Masonry/Masonry/MASViewConstraint.h
+Pods/Masonry/Masonry/MASViewConstraint.m
+Pods/Masonry/Masonry/NSArray+MASAdditions.h
+Pods/Masonry/Masonry/NSArray+MASAdditions.m
+Pods/Masonry/Masonry/NSArray+MASShorthandAdditions.h
+Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.h
+Pods/Masonry/Masonry/NSLayoutConstraint+MASDebugAdditions.m
+Pods/Masonry/Masonry/View+MASAdditions.h
+Pods/Masonry/Masonry/View+MASAdditions.m
+Pods/Masonry/Masonry/View+MASShorthandAdditions.h
+Pods/Masonry/Masonry/ViewController+MASAdditions.h
+Pods/Masonry/Masonry/ViewController+MASAdditions.m
+Pods/Pods.xcodeproj/project.pbxproj
+Pods/Pods.xcodeproj/xcuserdata/zhuch.xcuserdatad/xcschemes/AFNetworking.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/zhuch.xcuserdatad/xcschemes/Masonry.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/zhuch.xcuserdatad/xcschemes/Pods-SimpleExpenseTracker.xcscheme
+Pods/Pods.xcodeproj/xcuserdata/zhuch.xcuserdatad/xcschemes/xcschememanagement.plist
+Pods/Target Support Files/AFNetworking/AFNetworking-dummy.m
+Pods/Target Support Files/AFNetworking/AFNetworking-Info.plist
+Pods/Target Support Files/AFNetworking/AFNetworking-prefix.pch
+Pods/Target Support Files/AFNetworking/AFNetworking-umbrella.h
+Pods/Target Support Files/AFNetworking/AFNetworking.debug.xcconfig
+Pods/Target Support Files/AFNetworking/AFNetworking.modulemap
+Pods/Target Support Files/AFNetworking/AFNetworking.release.xcconfig
+Pods/Target Support Files/Masonry/Masonry-dummy.m
+Pods/Target Support Files/Masonry/Masonry-Info.plist
+Pods/Target Support Files/Masonry/Masonry-prefix.pch
+Pods/Target Support Files/Masonry/Masonry-umbrella.h
+Pods/Target Support Files/Masonry/Masonry.debug.xcconfig
+Pods/Target Support Files/Masonry/Masonry.modulemap
+Pods/Target Support Files/Masonry/Masonry.release.xcconfig
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-acknowledgements.markdown
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-acknowledgements.plist
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-dummy.m
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-frameworks-Debug-input-files.xcfilelist
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-frameworks-Debug-output-files.xcfilelist
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-frameworks-Release-input-files.xcfilelist
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-frameworks-Release-output-files.xcfilelist
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-frameworks.sh
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-Info.plist
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker-umbrella.h
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker.debug.xcconfig
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker.modulemap
+Pods/Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker.release.xcconfig
