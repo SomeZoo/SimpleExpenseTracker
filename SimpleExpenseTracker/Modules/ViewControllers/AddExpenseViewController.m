@@ -128,7 +128,7 @@
 }
 
 - (void)cancel {
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 - (void)save {
@@ -149,7 +149,7 @@
         [self.delegate addExpenseViewControllerDidSave:self];
     }
     
-    [self dismissViewControllerAnimated:YES completion:nil];
+    [self.navigationController popViewControllerAnimated:YES];
 }
 
 #pragma mark - UIPickerView

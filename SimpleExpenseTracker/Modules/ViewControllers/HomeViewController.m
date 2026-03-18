@@ -119,8 +119,7 @@
 - (void)addTapped {
     AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
     vc.delegate = self;
-    UINavigationController *nav = [[UINavigationController alloc] initWithRootViewController:vc];
-    [self presentViewController:nav animated:YES completion:nil];
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 #pragma mark - AddExpenseViewControllerDelegate
