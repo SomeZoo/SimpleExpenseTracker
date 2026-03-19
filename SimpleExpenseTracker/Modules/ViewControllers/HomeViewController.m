@@ -142,18 +142,38 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // 进入编辑模式
-    AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
-    vc.delegate = self;
-    vc.expenseToEdit = self.recentExpenses[indexPath.row];
-    [self.navigationController pushViewController:vc animated:YES];
+    // TODO: 点击进入详情页
+    // 暂时显示一个提示
+    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"详情页"
+                                                                   message:@"详情功能即将上线！"
+                                                            preferredStyle:UIAlertControllerStyleAlert];
+    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
+    [self presentViewController:alert animated:YES completion:nil];
 }
 
-- (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
-    if (editingStyle == UITableViewCellEditingStyleDelete) {
+- (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
+    // 编辑按钮
+    UIContextualAction *editAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleNormal
+                                                                              title:@"编辑"
+                                                                            handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
+        AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
+        vc.delegate = self;
+        vc.expenseToEdit = self.recentExpenses[indexPath.row];
+        [self.navigationController pushViewController:vc animated:YES];
+        completionHandler(YES);
+    }];
+    editAction.backgroundColor = [UIColor systemBlueColor];
+    
+    // 删除按钮
+    UIContextualAction *deleteAction = [UIContextualAction contextualActionWithStyle:UIContextualActionStyleDestructive
+                                                                                title:@"删除"
+                                                                              handler:^(UIContextualAction * _Nonnull action, __kindof UIView * _Nonnull sourceView, void (^ _Nonnull completionHandler)(BOOL)) {
         [[ExpenseManager sharedManager] deleteExpense:self.recentExpenses[indexPath.row]];
         [self refreshData];
-    }
+        completionHandler(YES);
+    }];
+    
+    return [UISwipeActionsConfiguration configurationWithActions:@[deleteAction, editAction]];
 }
 
 @end
