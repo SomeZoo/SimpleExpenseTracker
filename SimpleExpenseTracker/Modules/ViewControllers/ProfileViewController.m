@@ -5,6 +5,7 @@
 
 #import "ProfileViewController.h"
 #import "ExpenseManager.h"
+#import "CurrencyFormatter.h"
 
 @interface ProfileViewController () <UITableViewDataSource, UITableViewDelegate>
 @property (nonatomic, strong) UITableView *tableView;
@@ -123,8 +124,7 @@
     monthTitle.font = [UIFont systemFontOfSize:12];
     monthTitle.textColor = [UIColor secondaryLabelColor];
     
-    self.monthValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 36, 100, 24)];
-    self.monthValueLabel.font = [UIFont systemFontOfSize:20 weight:UIFontWeightBold];
+    self.monthValueLabel = [[UILabel alloc] initWithFrame:CGRectMake(20, 36, 120, 24)];
     self.monthValueLabel.textColor = [UIColor systemRedColor];
     
     // 记账天数
@@ -164,7 +164,7 @@
 - (void)bindHeaderData {
     ExpenseManager *manager = [ExpenseManager sharedManager];
     
-    self.monthValueLabel.text = [NSString stringWithFormat:@"¥%.2f", [manager totalAmountForThisMonth]];
+    self.monthValueLabel.attributedText = [CurrencyFormatter attributedAmount:[manager totalAmountForThisMonth] fontSize:18 color:[UIColor systemRedColor]];
     self.daysValueLabel.text = @"12"; // TODO: 计算实际记账天数
     self.countValueLabel.text = [NSString stringWithFormat:@"%lu", (unsigned long)[manager allExpenses].count];
 }

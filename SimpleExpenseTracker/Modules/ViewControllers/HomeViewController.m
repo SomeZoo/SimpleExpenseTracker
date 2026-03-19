@@ -6,6 +6,7 @@
 #import "ExpenseManager.h"
 #import "ExpenseCell.h"
 #import "AddExpenseViewController.h"
+#import "CurrencyFormatter.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, AddExpenseViewControllerDelegate>
 @property (nonatomic, strong) UIView *summaryCard;
@@ -50,9 +51,8 @@
     [self.summaryCard addSubview:todayLabel];
     
     self.todayAmountLabel = [[UILabel alloc] init];
-    self.todayAmountLabel.font = [UIFont systemFontOfSize:32 weight:UIFontWeightBold];
     self.todayAmountLabel.textColor = [UIColor whiteColor];
-    self.todayAmountLabel.text = @"¥0.00";
+    self.todayAmountLabel.attributedText = [CurrencyFormatter attributedAmount:0 fontSize:32 color:[UIColor whiteColor]];
     self.todayAmountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.summaryCard addSubview:self.todayAmountLabel];
     
@@ -64,9 +64,8 @@
     [self.summaryCard addSubview:monthLabel];
     
     self.monthAmountLabel = [[UILabel alloc] init];
-    self.monthAmountLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightMedium];
     self.monthAmountLabel.textColor = [UIColor whiteColor];
-    self.monthAmountLabel.text = @"¥0.00";
+    self.monthAmountLabel.attributedText = [CurrencyFormatter attributedAmount:0 fontSize:16 color:[UIColor whiteColor]];
     self.monthAmountLabel.translatesAutoresizingMaskIntoConstraints = NO;
     [self.summaryCard addSubview:self.monthAmountLabel];
     
@@ -108,8 +107,8 @@
 
 - (void)refreshData {
     ExpenseManager *manager = [ExpenseManager sharedManager];
-    self.todayAmountLabel.text = [NSString stringWithFormat:@"¥%.2f", [manager totalAmountForToday]];
-    self.monthAmountLabel.text = [NSString stringWithFormat:@"¥%.2f", [manager totalAmountForThisMonth]];
+    self.todayAmountLabel.attributedText = [CurrencyFormatter attributedAmount:[manager totalAmountForToday] fontSize:32 color:[UIColor whiteColor]];
+    self.monthAmountLabel.attributedText = [CurrencyFormatter attributedAmount:[manager totalAmountForThisMonth] fontSize:16 color:[UIColor whiteColor]];
     
     NSArray *all = [manager allExpenses];
     self.recentExpenses = [all subarrayWithRange:NSMakeRange(0, MIN(20, all.count))];

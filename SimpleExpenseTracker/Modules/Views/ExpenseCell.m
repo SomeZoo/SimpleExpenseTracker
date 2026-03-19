@@ -3,6 +3,7 @@
 //
 
 #import "ExpenseCell.h"
+#import "CurrencyFormatter.h"
 
 @interface ExpenseCell ()
 @property (nonatomic, strong) UILabel *titleLabel;
@@ -27,7 +28,7 @@
     [self.contentView addSubview:self.titleLabel];
     
     self.amountLabel = [[UILabel alloc] init];
-    self.amountLabel.font = [UIFont systemFontOfSize:16 weight:UIFontWeightBold];
+    self.amountLabel.font = [CurrencyFormatter dinFontWithSize:16];
     self.amountLabel.textColor = [UIColor systemRedColor];
     self.amountLabel.textAlignment = NSTextAlignmentRight;
     self.amountLabel.translatesAutoresizingMaskIntoConstraints = NO;
@@ -55,7 +56,7 @@
 
 - (void)configureWithExpense:(Expense *)expense {
     self.titleLabel.text = expense.title;
-    self.amountLabel.text = [NSString stringWithFormat:@"-¥%.2f", expense.amount];
+    self.amountLabel.attributedText = [CurrencyFormatter attributedExpenseAmount:expense.amount fontSize:16 color:[UIColor systemRedColor]];
     
     NSDateFormatter *formatter = [[NSDateFormatter alloc] init];
     formatter.dateFormat = @"MM-dd HH:mm";

@@ -18,6 +18,7 @@
 		D85144602F69995100FD1A19 /* AppDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D851444F2F69995100FD1A19 /* AppDelegate.m */; };
 		D85144612F69995100FD1A19 /* main.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144542F69995100FD1A19 /* main.m */; };
 		D85144622F69995100FD1A19 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144562F69995100FD1A19 /* SceneDelegate.m */; };
+		D85144652F69995100FD1A19 /* CurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144642F69995100FD1A19 /* CurrencyFormatter.m */; };
 		D8CC2B722F6ADECB004AA47E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CC2B712F6ADECB004AA47E /* ProfileViewController.m */; };
 /* End PBXBuildFile section */
 
@@ -29,6 +30,8 @@
 		D85144412F69995100FD1A19 /* Expense.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = Expense.m; sourceTree = "<group>"; };
 		D85144422F69995100FD1A19 /* ExpenseManager.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpenseManager.h; sourceTree = "<group>"; };
 		D85144432F69995100FD1A19 /* ExpenseManager.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpenseManager.m; sourceTree = "<group>"; };
+		D85144632F69995100FD1A19 /* CurrencyFormatter.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = CurrencyFormatter.h; sourceTree = "<group>"; };
+		D85144642F69995100FD1A19 /* CurrencyFormatter.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = CurrencyFormatter.m; sourceTree = "<group>"; };
 		D85144452F69995100FD1A19 /* AddExpenseViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = AddExpenseViewController.h; sourceTree = "<group>"; };
 		D85144462F69995100FD1A19 /* AddExpenseViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = AddExpenseViewController.m; sourceTree = "<group>"; };
 		D85144472F69995100FD1A19 /* HomeViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = HomeViewController.h; sourceTree = "<group>"; };
@@ -102,6 +105,8 @@
 				D85144412F69995100FD1A19 /* Expense.m */,
 				D85144422F69995100FD1A19 /* ExpenseManager.h */,
 				D85144432F69995100FD1A19 /* ExpenseManager.m */,
+				D85144632F69995100FD1A19 /* CurrencyFormatter.h */,
+				D85144642F69995100FD1A19 /* CurrencyFormatter.m */,
 			);
 			path = Models;
 			sourceTree = "<group>";
@@ -281,6 +286,7 @@
 				D85144602F69995100FD1A19 /* AppDelegate.m in Sources */,
 				D85144612F69995100FD1A19 /* main.m in Sources */,
 				D85144622F69995100FD1A19 /* SceneDelegate.m in Sources */,
+				D85144652F69995100FD1A19 /* CurrencyFormatter.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
