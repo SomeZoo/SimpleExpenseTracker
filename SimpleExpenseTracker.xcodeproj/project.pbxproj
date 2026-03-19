@@ -20,6 +20,7 @@
 		D85144622F69995100FD1A19 /* SceneDelegate.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144562F69995100FD1A19 /* SceneDelegate.m */; };
 		D85144652F69995100FD1A19 /* CurrencyFormatter.m in Sources */ = {isa = PBXBuildFile; fileRef = D85144642F69995100FD1A19 /* CurrencyFormatter.m */; };
 		D8CC2B722F6ADECB004AA47E /* ProfileViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CC2B712F6ADECB004AA47E /* ProfileViewController.m */; };
+		D8CC2B752F6ADECB004AA481 /* ExpenseDetailViewController.m in Sources */ = {isa = PBXBuildFile; fileRef = D8CC2B742F6ADECB004AA480 /* ExpenseDetailViewController.m */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXFileReference section */
@@ -48,6 +49,8 @@
 		D85144562F69995100FD1A19 /* SceneDelegate.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = SceneDelegate.m; sourceTree = "<group>"; };
 		D8CC2B702F6ADECB004AA47E /* ProfileViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ProfileViewController.h; sourceTree = "<group>"; };
 		D8CC2B712F6ADECB004AA47E /* ProfileViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ProfileViewController.m; sourceTree = "<group>"; };
+		D8CC2B732F6ADECB004AA47F /* ExpenseDetailViewController.h */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.h; path = ExpenseDetailViewController.h; sourceTree = "<group>"; };
+		D8CC2B742F6ADECB004AA480 /* ExpenseDetailViewController.m */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.c.objc; path = ExpenseDetailViewController.m; sourceTree = "<group>"; };
 		E9674BD44D859A4EB80FC41F /* Pods-SimpleExpenseTracker.release.xcconfig */ = {isa = PBXFileReference; includeInIndex = 1; lastKnownFileType = text.xcconfig; name = "Pods-SimpleExpenseTracker.release.xcconfig"; path = "Target Support Files/Pods-SimpleExpenseTracker/Pods-SimpleExpenseTracker.release.xcconfig"; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
@@ -120,6 +123,8 @@
 				D85144462F69995100FD1A19 /* AddExpenseViewController.m */,
 				D85144472F69995100FD1A19 /* HomeViewController.h */,
 				D85144482F69995100FD1A19 /* HomeViewController.m */,
+				D8CC2B732F6ADECB004AA47F /* ExpenseDetailViewController.h */,
+				D8CC2B742F6ADECB004AA480 /* ExpenseDetailViewController.m */,
 			);
 			path = ViewControllers;
 			sourceTree = "<group>";
@@ -287,6 +292,7 @@
 				D85144612F69995100FD1A19 /* main.m in Sources */,
 				D85144622F69995100FD1A19 /* SceneDelegate.m in Sources */,
 				D85144652F69995100FD1A19 /* CurrencyFormatter.m in Sources */,
+				D8CC2B752F6ADECB004AA481 /* ExpenseDetailViewController.m in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

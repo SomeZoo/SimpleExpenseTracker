@@ -6,6 +6,7 @@
 #import "ExpenseManager.h"
 #import "ExpenseCell.h"
 #import "AddExpenseViewController.h"
+#import "ExpenseDetailViewController.h"
 #import "CurrencyFormatter.h"
 
 @interface HomeViewController () <UITableViewDataSource, UITableViewDelegate, AddExpenseViewControllerDelegate>
@@ -118,6 +119,7 @@
 - (void)addTapped {
     AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
     vc.delegate = self;
+    vc.hidesBottomBarWhenPushed = YES;
     [self.navigationController pushViewController:vc animated:YES];
 }
 
@@ -142,13 +144,11 @@
 - (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
     [tableView deselectRowAtIndexPath:indexPath animated:YES];
     
-    // TODO: 点击进入详情页
-    // 暂时显示一个提示
-    UIAlertController *alert = [UIAlertController alertControllerWithTitle:@"详情页"
-                                                                   message:@"详情功能即将上线！"
-                                                            preferredStyle:UIAlertControllerStyleAlert];
-    [alert addAction:[UIAlertAction actionWithTitle:@"确定" style:UIAlertActionStyleDefault handler:nil]];
-    [self presentViewController:alert animated:YES completion:nil];
+    // 进入详情页
+    ExpenseDetailViewController *vc = [[ExpenseDetailViewController alloc] init];
+    vc.expense = self.recentExpenses[indexPath.row];
+    vc.hidesBottomBarWhenPushed = YES;
+    [self.navigationController pushViewController:vc animated:YES];
 }
 
 - (UISwipeActionsConfiguration *)tableView:(UITableView *)tableView trailingSwipeActionsConfigurationForRowAtIndexPath:(NSIndexPath *)indexPath {
@@ -159,6 +159,7 @@
         AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
         vc.delegate = self;
         vc.expenseToEdit = self.recentExpenses[indexPath.row];
+        vc.hidesBottomBarWhenPushed = YES;
         [self.navigationController pushViewController:vc animated:YES];
         completionHandler(YES);
     }];
