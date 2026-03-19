@@ -292,7 +292,12 @@
     }
     
     // 获取原始文本和光标位置（基于原始带逗号的文本）
-    NSString *originalText = textField.text;
+    NSString *originalText = textField.text ?: @"";
+    
+    // 安全检查：确保 range 在有效范围内
+    if (range.location > originalText.length) {
+        return NO;
+    }
     
     // 计算去掉逗号后的光标位置
     NSString *textBeforeCursor = [originalText substringToIndex:range.location];
@@ -301,6 +306,11 @@
     
     // 获取去掉逗号后的纯数字文本
     NSString *currentText = [originalText stringByReplacingOccurrencesOfString:@"," withString:@""];
+    
+    // 安全检查：确保 cleanCursorPosition 在有效范围内
+    if (cleanCursorPosition < 0 || cleanCursorPosition > currentText.length) {
+        cleanCursorPosition = currentText.length;
+    }
     
     // 在纯数字文本中插入新字符
     NSString *newText = [currentText stringByReplacingCharactersInRange:NSMakeRange(cleanCursorPosition, range.length) withString:string];
