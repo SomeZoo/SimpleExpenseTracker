@@ -12,6 +12,7 @@ NS_ASSUME_NONNULL_BEGIN
 + (instancetype)sharedManager;
 
 - (void)addExpense:(Expense *)expense;
+- (void)updateExpense:(Expense *)expense;
 - (void)deleteExpense:(Expense *)expense;
 - (NSArray<Expense *> *)allExpenses;
 - (double)totalAmountForToday;

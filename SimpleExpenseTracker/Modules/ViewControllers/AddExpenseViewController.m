@@ -22,7 +22,7 @@
 
 - (void)viewDidLoad {
     [super viewDidLoad];
-    self.title = @"记一笔";
+    self.title = self.expenseToEdit ? @"编辑记账" : @"记一笔";
     self.view.backgroundColor = [UIColor systemGroupedBackgroundColor];
     self.categories = @[@"餐饮", @"交通", @"购物", @"娱乐", @"居住", @"医疗", @"教育", @"其他"];
     
@@ -30,6 +30,7 @@
     self.navigationItem.rightBarButtonItem = [[UIBarButtonItem alloc] initWithBarButtonSystemItem:UIBarButtonSystemItemSave target:self action:@selector(save)];
     
     [self setupUI];
+    [self loadExpenseDataIfEditing];
 }
 
 - (void)setupUI {
@@ -198,14 +199,56 @@
     }
     
     NSString *note = self.noteTextView.text.length > 0 ? self.noteTextView.text : nil;
-    Expense *expense = [[Expense alloc] initWithTitle:title amount:amount date:self.datePicker.date category:self.categoryField.text note:note];
-    [[ExpenseManager sharedManager] addExpense:expense];
+    
+    if (self.expenseToEdit) {
+        // 编辑模式：更新现有记账
+        self.expenseToEdit.title = title;
+        self.expenseToEdit.amount = amount;
+        self.expenseToEdit.date = self.datePicker.date;
+        self.expenseToEdit.category = self.categoryField.text;
+        self.expenseToEdit.note = note;
+        [[ExpenseManager sharedManager] updateExpense:self.expenseToEdit];
+    } else {
+        // 新增模式：创建新记账
+        Expense *expense = [[Expense alloc] initWithTitle:title amount:amount date:self.datePicker.date category:self.categoryField.text note:note];
+        [[ExpenseManager sharedManager] addExpense:expense];
+    }
     
     if ([self.delegate respondsToSelector:@selector(addExpenseViewControllerDidSave:)]) {
         [self.delegate addExpenseViewControllerDidSave:self];
     }
     
     [self.navigationController popViewControllerAnimated:YES];
+}
+
+#pragma mark - Load Data
+
+- (void)loadExpenseDataIfEditing {
+    if (!self.expenseToEdit) return;
+    
+    // 加载金额
+    NSString *amountText = [CurrencyFormatter formattedAmount:self.expenseToEdit.amount];
+    self.amountField.text = amountText;
+    
+    // 加载标题
+    self.titleField.text = self.expenseToEdit.title;
+    
+    // 加载分类
+    self.categoryField.text = self.expenseToEdit.category ?: self.categories[0];
+    NSInteger categoryIndex = [self.categories indexOfObject:self.categoryField.text];
+    if (categoryIndex != NSNotFound) {
+        [self.picker selectRow:categoryIndex inComponent:0 animated:NO];
+    }
+    
+    // 加载日期
+    self.datePicker.date = self.expenseToEdit.date;
+    
+    // 加载备注
+    if (self.expenseToEdit.note) {
+        self.noteTextView.text = self.expenseToEdit.note;
+        self.notePlaceholderLabel.hidden = YES;
+        self.noteCountLabel.text = [NSString stringWithFormat:@"%lu/50", (unsigned long)self.expenseToEdit.note.length];
+    }
 }
 
 #pragma mark - UIPickerView

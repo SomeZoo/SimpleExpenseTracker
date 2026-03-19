@@ -139,6 +139,16 @@
     return cell;
 }
 
+- (void)tableView:(UITableView *)tableView didSelectRowAtIndexPath:(NSIndexPath *)indexPath {
+    [tableView deselectRowAtIndexPath:indexPath animated:YES];
+    
+    // 进入编辑模式
+    AddExpenseViewController *vc = [[AddExpenseViewController alloc] init];
+    vc.delegate = self;
+    vc.expenseToEdit = self.recentExpenses[indexPath.row];
+    [self.navigationController pushViewController:vc animated:YES];
+}
+
 - (void)tableView:(UITableView *)tableView commitEditingStyle:(UITableViewCellEditingStyle)editingStyle forRowAtIndexPath:(NSIndexPath *)indexPath {
     if (editingStyle == UITableViewCellEditingStyleDelete) {
         [[ExpenseManager sharedManager] deleteExpense:self.recentExpenses[indexPath.row]];

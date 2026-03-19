@@ -63,6 +63,18 @@ static NSString * const kExpensesKey = @"saved_expenses";
     [self saveExpenses];
 }
 
+- (void)updateExpense:(Expense *)expense {
+    if (!expense) return;
+    NSUInteger index = [self.expenses indexOfObjectPassingTest:^BOOL(Expense *obj, NSUInteger idx, BOOL *stop) {
+        return [obj.expenseId isEqualToString:expense.expenseId];
+    }];
+    if (index != NSNotFound) {
+        [self.expenses replaceObjectAtIndex:index withObject:expense];
+        [self sortExpenses];
+        [self saveExpenses];
+    }
+}
+
 - (void)deleteExpense:(Expense *)expense {
     if (!expense) return;
     NSUInteger index = [self.expenses indexOfObjectPassingTest:^BOOL(Expense *obj, NSUInteger idx, BOOL *stop) {
